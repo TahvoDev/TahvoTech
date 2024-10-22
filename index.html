@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+<style>
+
+
+
+.iconbox {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconbox-logo img {
+  width: 10px;
+  height: 10px;
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.container {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+}
+.button, .bio, .header {
+  font-family: "Rubik";
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #333;
+  color: white;
+  transition: transform 0.2s ease-in-out, background-color 0.2s, color 0.2s;
+  width: 80%;
+  margin-bottom: 5px;
+  text-align: left;
+  text-decoration: none; /* Add this line */
+}
+
+.button:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+.button.active {
+  background-color: white;
+  color: black;
+  cursor: default;
+  transform: none;
+}
+
+.button .button-inner {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.profile img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #333;
+  margin: 0 auto 10px;
+}
+
+.button-text {
+  flex: 1;
+  padding-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.button img {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.secondary-text {
+  font-size: 12px;
+  color: #aaa;
+  white-space: nowrap;
+}
+
+.email-button {
+  background-color: #444;
+  justify-content: center;
+  text-align: center;
+}
+
+.email-button .button-inner {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.email-button .button-text {
+  flex: none;
+  padding-right: 0;
+  padding-left: 10px;
+}
+
+.email-button img {
+  margin-right: 10px;
+  margin-left: 0;
+}
+
+</style>
+<script>
+  function handleButtonClick(url, event) {
+    if (event.button === 1 || event.button === 4) {
+      window.open(url, '_blank');
+    }
+  }
+
+  // Unobtrusive JavaScript
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".button");
+
+    buttons.forEach(function(button) {
+      button.addEventListener("mouseup", function(event) {
+        const url = this.getAttribute("href"); // Use href attribute
+        if (url != null) {
+          handleButtonClick(url, event);
+        }
+      });
+    });
+  });
+
+  function generateEmailLink() {
+    var user = 'tahvobiz';
+    var domain = 'pm.me';
+    var element = document.getElementById('protected-email');
+    
+    var emailButton = document.getElementById('protected-email-button');
+    emailButton.classList.add('active');
+    emailButton.innerHTML = '<div class="button-inner"><span class="button-text">' + user + '@' + domain + '</span></div>';
+    emailButton.removeAttribute('onclick');
+  }
+
+  function emailButtonClickHandler(event) {
+    generateEmailLink();
+  }
+</script>
+</head>
+<body>
+
+<div class="container">
+  <div class="profile">
+    <img src="https://pbs.twimg.com/profile_images/1765229987022438400/cml1yueG_400x400.jpg" alt="Profile Picture">
+  </div>
+
+  <div class="header">
+    <strong>Tahvo</strong>
+  </div>
+  
+  <div class="bio">
+    Companion to the Digital World
+  </div>
+
+  <div class="button-container">
+    <a class="button youtube-button" href="https://www.youtube.com/channel/UCCQNkmRNM3fPbYeo4XQKogw?sub_confirmation=1">
+      <div class="button-inner">
+        <div class="iconbox">
+          <img src="https://images2.imgbox.com/5e/e0/Adr5qgby_o.png" style="background-color: #ff0000;" alt="Image">
+        </div>
+        <span class="button-text">YouTube</span>
+      </div>
+      <span class="secondary-text">Full Videos</span>
+    </a>
+  </div>
+
+  <div class="button-container">
+    <a class="button" href="https://www.tiktok.com/@tahvovr">
+      <div class="button-inner">
+        <div class="iconbox">
+          <img src="https://images2.imgbox.com/dd/86/irJefcgL_o.png" style="background-color: #000000;" alt="Image">
+        </div>
+        <span class="button-text">TikTok</span>
+      </div>
+      <span class="secondary-text">Fun Shorts</span>
+    </a>
+  </div>
+  
+  <div class="button-container">
+    <a class="button" href="https://www.twitch.tv/tahvolive">
+      <div class="button-inner">
+        <div class="iconbox">
+          <img src="https://images2.imgbox.com/d8/ae/8UGEs03W_o.png" style="background-color: #9146ff;" alt="Image">
+        </div>
+        <span class="button-text">Twitch</span>
+      </div>
+      <span class="secondary-text">Watch Live</span>
+    </a>
+  </div>
+  
+  <div class="button-container">
+    <a class="button" href="https://x.com/TahvoVR">
+      <div class="button-inner">
+        <div class="iconbox">
+          <img src="https://images2.imgbox.com/4f/62/syG9F1Ax_o.png" style="background-color: ##000000;" alt="Image">
+        </div>
+        <span class="button-text">X (Twitter)</span>
+      </div>
+      <span class="secondary-text">Latest Updates</span>
+    </a>
+  </div>
+
+  <div class="button-container">
+
+    <a class="button" href="https://discord.gg/rapYz8Xqt5">
+
+      <div class="button-inner">
+        <div class="iconbox">
+          <img src="https://images2.imgbox.com/45/e4/sszJaOkQ_o.png" style="background-color: #5865F2;" alt="Image">
+        </div>        <span class="button-text">Discord</span>
+      </div>
+      <span class="secondary-text">Join Server</span>
+    </a>
+  </div>
+  
+  <div class="button-container">
+    <a class="button" href="https://docs.google.com/spreadsheets/d/192veuyFHWsxutNSJsbWfzyNoMJh82kM2eXx1XQrpCQQ/edit?usp=sharing">
+      <div class="button-inner">
+      <span class="button-text">Avatar Credits</span>
+      </div>
+      <span class="secondary-text">Thank You</span>
+    </a>
+  </div>
+
+  <div class="button-container">
+    <div id="protected-email-button" class="button email-button" onclick="generateEmailLink();">
+      <div class="button-inner">
+        <span class="button-text">View Business Email</span>
+      </div>
+    </div>
+    <div id="protected-email" style="display:none;"></div>
+  </div>
+</div>
+
+</body>
+</html>

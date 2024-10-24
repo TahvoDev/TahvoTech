@@ -40,9 +40,9 @@
 .button {
     display: flex;
     align-items: center;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 18px;
+    padding: 0.625rem 0.9375rem; /* padding: 10px 15px -> 0.625rem 0.9375rem */
+    border-radius: 0.3125rem; /* 5px -> 0.3125rem */
+    font-size: 1.125rem; /* 18px -> 1.125rem */
     font-weight: bold;
     cursor: pointer;
     overflow: hidden;
@@ -50,13 +50,13 @@
     color: white;
     transition: transform 0.2s ease-in-out, background-color 0.2s, color 0.2s;
     width: 100%; /* Full width on small screens */
-    min-width: 200px; /* Ensure a minimum width */
-    margin-bottom: 5px;
+    max-width: 25vw; /* Limit max width based on viewport width */
+    min-width: 12.5vw; /* Ensure a minimum width based on viewport width */
+    margin-bottom: 0.3125rem; /* 5px -> 0.3125rem */
     text-align: left;
     text-decoration: none;
-    box-sizing: border-box; /* Ensure padding is included in width calculations */
+    box-sizing: border-box;
   }
-
 .button:hover {
   background-color: #555;
   transform: scale(1.05);

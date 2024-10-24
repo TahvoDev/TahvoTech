@@ -53,14 +53,26 @@
     background-color: #333;
     color: white;
     transition: transform 0.2s ease-in-out, background-color 0.2s, color 0.2s;
-    width: 100%; /* Full width on small screens */
-    max-width: 25vw; /* Limit max width based on viewport width */
-    min-width: 20vw; /* Ensure a minimum width based on viewport width */
+    width: 90%; /* Use 90% width to avoid squishing on small screens */
+    max-width: 500px; /* Max width limit */
+    min-width: 250px; /* Minimum width to avoid being too small */
     margin-bottom: 0.3125rem; /* 5px -> 0.3125rem */
     text-align: left;
     text-decoration: none;
     box-sizing: border-box;
-  }
+}
+
+@media (min-aspect-ratio: 1/1) {
+    .button {
+        width: 50%; /* For landscape screens, use 50% width */
+    }
+}
+
+.button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
 .button:hover {
   background-color: #555;
   transform: scale(1.05);

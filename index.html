@@ -40,7 +40,7 @@
 .button {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
+  padding: 12px 20px; /* Slightly increase padding for better appearance on high-res screens */
   border-radius: 5px;
   font-size: 18px;
   font-weight: bold;
@@ -49,13 +49,21 @@
   background-color: #333;
   color: white;
   transition: transform 0.2s ease-in-out, background-color 0.2s, color 0.2s;
-  width: 100%; 
-  max-width: 400px; 
-  min-width: 200px;
+  width: 90vw; /* Use viewport width for responsiveness */
+  max-width: 400px; /* Maximum width of 400px */
+  min-width: 250px; /* Minimum width to avoid being too small */
   margin-bottom: 5px;
   text-align: left;
   text-decoration: none;
-  box-sizing: border-box; 
+  box-sizing: border-box; /* Ensures padding is included in width calculations */
+}
+
+@media (min-width: 768px) {
+  .button {
+    width: 50vw; /* Use 50% of the viewport width on larger screens */
+    max-width: 400px; /* Limit max width to 400px on large screens */
+    min-width: 250px; /* Minimum width of 250px */
+  }
 }
 
 .button:hover {

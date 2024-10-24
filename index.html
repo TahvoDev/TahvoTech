@@ -34,9 +34,8 @@
   margin: 5px;
 }
 .button, .bio, .header {
-  font-family: "Rubik";
+  font-family: "Poppins";
 }
-
 
 .button {
     display: flex;
@@ -58,21 +57,6 @@
     box-sizing: border-box; /* Ensure padding is included in width calculations */
   }
 
-  /* Portrait orientation */
-  @media (orientation: portrait) {
-    .button {
-      width: 100%; /* Use full width in portrait mode */
-    }
-  }
-
-  /* Landscape orientation */
-  @media (orientation: landscape) {
-    .button {
-      width: 50%; /* Use 50% width in landscape mode */
-      max-width: 400px; /* Adjust max width for landscape */
-    }
-  }
-
 .button:hover {
   background-color: #555;
   transform: scale(1.05);
@@ -91,7 +75,6 @@
   justify-content: space-between;
   align-items: center;
 }
-
 
 .profile img {
   width: 80px;

@@ -45,19 +45,19 @@
 .button {
     display: flex;
     align-items: center;
-    padding: 0.625rem 0.9375rem;
-    border-radius: 0.3125rem;
-    font-size: 1.125rem;
+    padding: 0.625rem 0.9375rem; /* padding: 10px 15px -> 0.625rem 0.9375rem */
+    border-radius: 0.3125rem; /* 5px -> 0.3125rem */
+    font-size: 1.125rem; /* 18px -> 1.125rem */
     font-weight: bold;
     cursor: pointer;
     overflow: hidden;
     background-color: #333;
     color: white;
     transition: ease-in-out, background-color 0.2s, color 0.2s;
-    width: 90%;
-    max-width: 500px;
-    min-width: 250px;
-    margin-bottom: 0.3125rem;
+    width: 90%; /* Use 90% width to avoid squishing on small screens */
+    max-width: 500px; /* Max width limit */
+    min-width: 250px; /* Minimum width to avoid being too small */
+    margin-bottom: 0.3125rem; /* 5px -> 0.3125rem */
     text-align: left;
     text-decoration: none;
     box-sizing: border-box;
@@ -67,9 +67,9 @@
 .buttonsmall {
     display: flex;
     align-items: center;
-    padding: 0.625rem 0.9375rem;
-    border-radius: 0.3125rem;
-    font-size: 1.125rem;
+    padding: 0.625rem 0.9375rem; /* padding: 10px 15px -> 0.625rem 0.9375rem */
+    border-radius: 0.3125rem; /* 5px -> 0.3125rem */
+    font-size: 1.125rem; /* 18px -> 1.125rem */
     font-weight: bold;
     cursor: pointer;
     overflow: hidden;
@@ -163,13 +163,14 @@
   margin-left: 0;
 }
 
+/* Row of equal-width small buttons, matching the width of a single big .button */
 .button-row {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
   justify-content: space-between;
-  gap: 0.3125rem;
+  gap: 0.3125rem; /* matches .button margin-bottom spacing */
   width: 90%;
   max-width: 500px;
   min-width: 250px;
@@ -183,23 +184,24 @@
   margin-bottom: 0;
   width: auto;
   max-width: none;
-  padding: 0.625rem clamp(0.4rem, 2vw, 0.9375rem);
-  font-size: clamp(0.85rem, 3.2vw, 1.125rem);
+  justify-content: center;
+  padding: 0.625rem 0.5rem;
+}
+
+.button-row .buttonsmall .button-inner {
+  flex-grow: 0;
+  justify-content: center;
 }
 
 .button-row .iconbox {
-  width: clamp(24px, 8vw, 32px);
-  height: clamp(24px, 8vw, 32px);
+  width: clamp(28px, 9vw, 36px);
+  height: clamp(28px, 9vw, 36px);
 }
 
 .button-row .buttonsmall img {
   width: 100%;
   height: 100%;
   margin-right: 0;
-}
-
-.button-row .button-text {
-  padding-left: clamp(6px, 2vw, 10px);
 }
 
 </style>
@@ -302,30 +304,28 @@
     </a>
   </div>
 
+  <!-- BlueSky, X, and Discord now share one equal-width row -->
   <div class="button-container">
   <div class="button-row">
-    <a class="buttonsmall" href="https://bsky.app/profile/tahvo.tech">
+    <a class="buttonsmall" href="https://bsky.app/profile/tahvo.tech" aria-label="BlueSky">
       <div class="button-inner">
         <div class="iconbox">
           <img src="images/icons/bluesky.png" style="background-color: #4ca2fe;" alt="Image">
         </div>
-        <span class="button-text">BlueSky</span>
       </div>
     </a>
-    <a class="buttonsmall" href="https://x.com/TahvoVR">
+    <a class="buttonsmall" href="https://x.com/TahvoVR" aria-label="X (Twitter)">
       <div class="button-inner">
         <div class="iconbox">
           <img src="images/icons/x.png" style="background-color: #000000;" alt="Image">
         </div>
-        <span class="button-text">X</span>
       </div>
     </a>
-    <a class="buttonsmall" href="https://discord.gg/rapYz8Xqt5">
+    <a class="buttonsmall" href="https://discord.gg/rapYz8Xqt5" aria-label="Discord">
       <div class="button-inner">
         <div class="iconbox">
           <img src="images/icons/discord.png" style="background-color: #5865F2;" alt="Image">
         </div>
-        <span class="button-text">Discord</span>
       </div>
     </a>
   </div>

@@ -53,7 +53,7 @@
     overflow: hidden;
     background-color: #333;
     color: white;
-    transition: ease-in-out, background-color 0.2s, color 0.2s;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     width: 90%; /* Use 90% width to avoid squishing on small screens */
     max-width: 500px; /* Max width limit */
     min-width: 250px; /* Minimum width to avoid being too small */
@@ -75,7 +75,7 @@
     overflow: hidden;
     background-color: #333;
     color: white;
-    transition: ease-in-out, background-color 0.2s, color 0.2s;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     text-align: left;
     text-decoration: none;
     box-sizing: border-box;
@@ -116,6 +116,8 @@
   border-radius: 50%;
   background-color: #333;
   margin: 0 auto 10px;
+  border: 3px solid #ff8c00;
+  box-shadow: 0 0 0 4px rgba(255, 140, 0, 0.25), 0 0 18px rgba(255, 140, 0, 0.55);
 }
 
 .button-text {
@@ -334,7 +336,7 @@
   <div class="button-container">
     <div id="protected-email-button" class="button email-button" onclick="generateEmailLink();">
       <div class="button-inner">
-        <span class="button-text">View Business Email</span>
+        <span class="button-text">Business Email</span>
       </div>
     </div>
     <div id="protected-email" style="display:none;"></div>

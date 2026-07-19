@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -11,6 +11,7 @@
 .iconbox {
   width: 32px;
   height: 32px;
+  flex-shrink: 0;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -37,26 +38,44 @@
   align-items: center;
   margin: 5px;
 }
-.button, .bio, .header {
+.button, .buttonsmall, .bio, .header {
   font-family: "Poppins";
 }
 
 .button {
     display: flex;
     align-items: center;
-    padding: 0.625rem 0.9375rem; /* padding: 10px 15px -> 0.625rem 0.9375rem */
-    border-radius: 0.3125rem; /* 5px -> 0.3125rem */
-    font-size: 1.125rem; /* 18px -> 1.125rem */
+    padding: 0.625rem 0.9375rem;
+    border-radius: 0.3125rem;
+    font-size: 1.125rem;
     font-weight: bold;
     cursor: pointer;
     overflow: hidden;
     background-color: #333;
     color: white;
     transition: ease-in-out, background-color 0.2s, color 0.2s;
-    width: 90%; /* Use 90% width to avoid squishing on small screens */
-    max-width: 500px; /* Max width limit */
-    min-width: 250px; /* Minimum width to avoid being too small */
-    margin-bottom: 0.3125rem; /* 5px -> 0.3125rem */
+    width: 90%;
+    max-width: 500px;
+    min-width: 250px;
+    margin-bottom: 0.3125rem;
+    text-align: left;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+
+.buttonsmall {
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 0.9375rem;
+    border-radius: 0.3125rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: #333;
+    color: white;
+    transition: ease-in-out, background-color 0.2s, color 0.2s;
     text-align: left;
     text-decoration: none;
     box-sizing: border-box;
@@ -66,16 +85,14 @@
     .button {
         width: 50%; /* For landscape screens, use 50% width */
     }
+    .button-row {
+        width: 50%;
+    }
 }
 
-.button:hover {
+.button:hover, .buttonsmall:hover {
     background-color: #555;
     transform: scale(1.05);
-}
-
-.button:hover {
-  background-color: #555;
-  transform: scale(1.05);
 }
 
 .button.active {
@@ -85,11 +102,12 @@
   transform: none;
 }
 
-.button .button-inner {
+.button .button-inner, .buttonsmall .button-inner {
   flex-grow: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 0;
 }
 
 .profile img {
@@ -106,13 +124,15 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 0;
 }
 
-.button img {
+.button img, .buttonsmall img {
   width: 36px;
   height: 36px;
   border-radius: 5px;
   margin-right: 10px;
+  flex-shrink: 0;
 }
 
 .secondary-text {
@@ -143,6 +163,45 @@
   margin-left: 0;
 }
 
+.button-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 0.3125rem;
+  width: 90%;
+  max-width: 500px;
+  min-width: 250px;
+  margin: 0 auto 0.3125rem;
+  box-sizing: border-box;
+}
+
+.button-row .buttonsmall {
+  flex: 1 1 0;
+  min-width: 0;
+  margin-bottom: 0;
+  width: auto;
+  max-width: none;
+  padding: 0.625rem clamp(0.4rem, 2vw, 0.9375rem);
+  font-size: clamp(0.85rem, 3.2vw, 1.125rem);
+}
+
+.button-row .iconbox {
+  width: clamp(24px, 8vw, 32px);
+  height: clamp(24px, 8vw, 32px);
+}
+
+.button-row .buttonsmall img {
+  width: 100%;
+  height: 100%;
+  margin-right: 0;
+}
+
+.button-row .button-text {
+  padding-left: clamp(6px, 2vw, 10px);
+}
+
 </style>
 <script>
   function handleButtonClick(url, event) {
@@ -151,13 +210,12 @@
     }
   }
 
-  // Unobtrusive JavaScript
   document.addEventListener("DOMContentLoaded", function() {
-    const buttons = document.querySelectorAll(".button");
+    const buttons = document.querySelectorAll(".button, .buttonsmall");
 
     buttons.forEach(function(button) {
       button.addEventListener("mouseup", function(event) {
-        const url = this.getAttribute("href"); // Use href attribute
+        const url = this.getAttribute("href");
         if (url != null) {
           handleButtonClick(url, event);
         }
@@ -169,7 +227,7 @@
     var user = 'tahvobiz';
     var domain = 'pm.me';
     var element = document.getElementById('protected-email');
-    
+
     var emailButton = document.getElementById('protected-email-button');
     emailButton.classList.add('active');
     emailButton.innerHTML = '<div class="button-inner"><span class="button-text">' + user + '@' + domain + '</span></div>';
@@ -191,9 +249,9 @@
   <div class="header">
     <strong>Tahvo</strong>
   </div>
-  
+
   <div class="bio">
-    Companion to the Digital World
+    Companion in the Virutal World
   </div>
 
   <div class="button-container">
@@ -231,7 +289,7 @@
       <span class="secondary-text">Fun Shorts</span>
     </a>
   </div>
-  
+
   <div class="button-container">
     <a class="button" href="https://www.twitch.tv/tahvolive">
       <div class="button-inner">
@@ -243,51 +301,34 @@
       <span class="secondary-text">Watch Live</span>
     </a>
   </div>
-  
+
   <div class="button-container">
-    <a class="button" href="https://bsky.app/profile/tahvo.tech">
+  <div class="button-row">
+    <a class="buttonsmall" href="https://bsky.app/profile/tahvo.tech">
       <div class="button-inner">
         <div class="iconbox">
           <img src="images/icons/bluesky.png" style="background-color: #4ca2fe;" alt="Image">
         </div>
         <span class="button-text">BlueSky</span>
       </div>
-      <span class="secondary-text">The New One</span>
     </a>
-  </div>
-
-  <div class="button-container">
-    <a class="button" href="https://x.com/TahvoVR">
+    <a class="buttonsmall" href="https://x.com/TahvoVR">
       <div class="button-inner">
         <div class="iconbox">
           <img src="images/icons/x.png" style="background-color: #000000;" alt="Image">
         </div>
-        <span class="button-text">X (Twitter)</span>
+        <span class="button-text">X</span>
       </div>
-      <span class="secondary-text">Latest Updates</span>
     </a>
-  </div>
-
-  <div class="button-container">
-
-    <a class="button" href="https://discord.gg/rapYz8Xqt5">
-
+    <a class="buttonsmall" href="https://discord.gg/rapYz8Xqt5">
       <div class="button-inner">
         <div class="iconbox">
           <img src="images/icons/discord.png" style="background-color: #5865F2;" alt="Image">
-        </div>        <span class="button-text">Discord</span>
+        </div>
+        <span class="button-text">Discord</span>
       </div>
-      <span class="secondary-text">Join Server</span>
     </a>
   </div>
-  
-  <div class="button-container">
-    <a class="button" href="https://docs.google.com/spreadsheets/d/192veuyFHWsxutNSJsbWfzyNoMJh82kM2eXx1XQrpCQQ/edit?usp=sharing">
-      <div class="button-inner">
-      <span class="button-text">Avatar Credits</span>
-      </div>
-      <span class="secondary-text">Thank You</span>
-    </a>
   </div>
 
   <div class="button-container">
@@ -299,6 +340,5 @@
     <div id="protected-email" style="display:none;"></div>
   </div>
 </div>
-
 </body>
 </html>

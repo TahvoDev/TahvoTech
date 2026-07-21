@@ -6,452 +6,115 @@
   <title>Tahvo - Exploring Virtual Worlds</title>
   <meta name="description" content="Tahvo's links — YouTube, Twitch, TikTok, BlueSky, X, and Discord. Exploring virtual worlds.">
 
+  <!-- Google Fonts (Poppins), loaded without blocking initial render -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"></noscript>
-<style>
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  </noscript>
 
-.iconbox {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.iconbox-logo img {
-  width: 10px;
-  height: 10px;
-  object-fit: cover;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.container {
-  text-align: center;
-  padding-top: 20px;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5px;
-}
-.button, .buttonsmall, .bio, .header {
-  font-family: "Poppins";
-}
-
-.button {
-    display: flex;
-    align-items: center;
-    padding: 0.45rem 0.9375rem;
-    border-radius: 0.3125rem; /* 5px -> 0.3125rem */
-    font-size: 1.125rem; /* 18px -> 1.125rem */
-    font-weight: bold;
-    cursor: pointer;
-    overflow: hidden;
-    background-color: #333;
-    color: white;
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    width: 90%; /* Use 90% width to avoid squishing on small screens */
-    max-width: 500px; /* Max width limit */
-    min-width: 250px; /* Minimum width to avoid being too small */
-    margin-bottom: 0.3125rem; /* 5px -> 0.3125rem */
-    text-align: left;
-    text-decoration: none;
-    box-sizing: border-box;
-}
-
-
-.buttonsmall {
-    display: flex;
-    align-items: center;
-    padding: 0.45rem 0.9375rem;
-    border-radius: 0.3125rem; /* 5px -> 0.3125rem */
-    font-size: 1.125rem; /* 18px -> 1.125rem */
-    font-weight: bold;
-    cursor: pointer;
-    overflow: hidden;
-    background-color: #333;
-    color: white;
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    text-align: left;
-    text-decoration: none;
-    box-sizing: border-box;
-}
-
-@media (min-aspect-ratio: 1/1) {
-    .button {
-        width: 50%;
-    }
-}
-
-.button:hover, .buttonsmall:hover {
-    background-color: #555;
-    transform: scale(1.05);
-}
-
-.button.active {
-  background-color: white;
-  color: black;
-  cursor: default;
-  transform: none;
-}
-
-.button .button-inner, .buttonsmall .button-inner {
-  flex-grow: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 0;
-}
-
-.profile {
-  position: relative;
-  display: inline-block;
-}
-
-.profile img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: #333;
-  margin: 0 auto 10px;
-  border: 3px solid #ff8c00;
-  box-shadow: 0 0 0 4px rgba(255, 140, 0, 0.25), 0 0 18px rgba(255, 140, 0, 0.55);
-  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.profile.is-live img {
-  border-color: #ff2d2d;
-  box-shadow: 0 0 0 4px rgba(255, 45, 45, 0.3), 0 0 20px rgba(255, 45, 45, 0.65);
-  animation: live-pulse 1.8s ease-in-out infinite;
-}
-
-@keyframes live-pulse {
-  0%, 100% { box-shadow: 0 0 0 4px rgba(255, 45, 45, 0.3), 0 0 20px rgba(255, 45, 45, 0.65); }
-  50% { box-shadow: 0 0 0 6px rgba(255, 45, 45, 0.15), 0 0 28px rgba(255, 45, 45, 0.85); }
-}
-
-.button-text {
-  flex: 1;
-  padding-left: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-}
-
-.button img, .buttonsmall img {
-  width: 36px;
-  height: 36px;
-  border-radius: 5px;
-  margin-right: 10px;
-  flex-shrink: 0;
-}
-
-.secondary-text {
-  font-size: 12px;
-  color: #aaa;
-  white-space: nowrap;
-}
-
-.secondary-text.is-live {
-  background-color: #ff2d2d;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  padding: 3px 8px;
-  border-radius: 4px;
-  animation: live-pulse-dot 1.2s ease-in-out infinite;
-}
-
-@keyframes live-pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.75; }
-}
-
-.business-inquiries-label {
-  font-family: "Poppins";
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #999;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.business-email-line {
-  font-family: "Poppins";
-  font-weight: bold;
-  margin-top: 4px;
-  text-align: center;
-}
-
-.business-email-line a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-/* Row of icon-only buttons — sized to its content, not stretched to match big buttons */
-.button-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  width: auto;
-  margin: 0 auto 0.3125rem;
-  box-sizing: border-box;
-}
-
-.button-row .buttonsmall {
-  flex: 0 0 auto;
-  min-width: 0;
-  margin-bottom: 0;
-  width: auto;
-  max-width: none;
-  justify-content: center;
-  padding: 0.45rem;
-  background-color: transparent;
-  box-shadow: none;
-}
-
-.button-row .buttonsmall:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  transform: scale(1.1);
-}
-
-.button-row .buttonsmall .button-inner {
-  flex-grow: 0;
-  justify-content: center;
-}
-
-.button-row .iconbox {
-  width: clamp(28px, 9vw, 36px);
-  height: clamp(28px, 9vw, 36px);
-}
-
-.button-row .buttonsmall img {
-  width: 100%;
-  height: 100%;
-  margin-right: 0;
-}
-
-</style>
-<script>
-  function handleButtonClick(url, event) {
-    if (event.button === 1 || event.button === 4) {
-      window.open(url, '_blank');
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", function() {
-    const buttons = document.querySelectorAll(".button, .buttonsmall");
-
-    buttons.forEach(function(button) {
-      button.addEventListener("mouseup", function(event) {
-        const url = this.getAttribute("href");
-        if (url != null) {
-          handleButtonClick(url, event);
-        }
-      });
-    });
-  });
-
-  function renderBusinessEmail() {
-    const userCodes = [116, 97, 104, 118, 111, 98, 105, 122];
-    const domainCodes = [112, 109, 46, 109, 101];
-    const user = String.fromCharCode.apply(null, userCodes);
-    const domain = String.fromCharCode.apply(null, domainCodes);
-    const address = user + '@' + domain;
-
-    const el = document.getElementById('business-email');
-    if (!el) return;
-
-    const link = document.createElement('a');
-    link.href = 'mailto:' + address;
-    link.textContent = address;
-    link.rel = 'nofollow';
-
-    el.textContent = '';
-    el.appendChild(link);
-  }
-
-  document.addEventListener('DOMContentLoaded', renderBusinessEmail);
-
-  // --- Twitch live status ---
-  // Uses decapi.me (a free, unauthenticated status proxy) since static GitHub Pages
-  // can't safely call Twitch's own API without exposing a client secret.
-  const TWITCH_CHANNEL = 'tahvolive';
-
-  // --- Visual test mode ---
-  // 1) URL param: add ?forcelive=true or ?forcelive=false to the page URL to preview
-  //    that state. While this param is present, the real Twitch check is skipped
-  //    entirely so it won't get overwritten.
-  // 2) Console helper: open dev tools console on the live page and run
-  //    previewLiveState(true) or previewLiveState(false) to preview instantly.
-  //    (This gets overwritten by the next real check, ~60s later, unless the
-  //    URL param above is also set.)
-  const urlParams = new URLSearchParams(window.location.search);
-  const forcedLive = urlParams.has('forcelive')
-    ? urlParams.get('forcelive') !== 'false'
-    : null;
-
-  function applyLiveState(isLive) {
-    const profileEl = document.getElementById('profile');
-    const twitchStatusEl = document.getElementById('twitch-status-text');
-    if (!profileEl || !twitchStatusEl) return;
-    profileEl.classList.toggle('is-live', isLive);
-    twitchStatusEl.textContent = isLive ? 'LIVE' : '';
-    twitchStatusEl.classList.toggle('is-live', isLive);
-  }
-
-  window.previewLiveState = function(isLive) {
-    applyLiveState(!!isLive);
-    console.log('[Twitch live check] Previewing live =', !!isLive, '(visual only, will be overwritten by the next real check unless ?forcelive= is set in the URL)');
-  };
-
-  function checkTwitchLive() {
-    if (forcedLive !== null) {
-      applyLiveState(forcedLive);
-      return;
-    }
-
-    const requestUrl = `https://decapi.me/twitch/uptime/${TWITCH_CHANNEL}?offline_msg=offline`;
-
-    fetch(requestUrl)
-      .then(function(res) {
-        if (!res.ok) {
-          throw new Error(`decapi responded with HTTP ${res.status} ${res.statusText}`);
-        }
-        return res.text();
-      })
-      .then(function(text) {
-        const isLive = text.trim().toLowerCase() !== 'offline';
-        applyLiveState(isLive);
-      })
-      .catch(function(err) {
-        console.error('Twitch live check failed:', err);
-        console.info(
-          '[Twitch live check] Debug info — request URL:', requestUrl,
-          '\nerror name:', err && err.name,
-          '\nerror message:', err && err.message,
-          '\n\nA generic "TypeError: Failed to fetch" (no HTTP status, no response body) almost always means the request never completed at the network/browser level, not that decapi returned bad data. Common causes:',
-          '\n1) Opening this file directly as file:// instead of via http(s) (e.g. a local server or the live GitHub Pages URL) — some browsers block fetch() from file:// origins entirely.',
-          '\n2) An ad blocker, privacy extension, or browser DNS blocklist blocking requests to decapi.me (uBlock/Brave Shields sometimes flag third-party API domains).',
-          '\n3) No internet connection at the moment of the check.',
-          '\n4) decapi.me being temporarily down or rate-limiting.',
-          '\nOpen the Network tab in dev tools, reload, and look for the request to decapi.me — if it shows "(blocked:other)" or "(failed) net::ERR_BLOCKED_BY_CLIENT" that confirms an extension/blocklist; if it shows nothing at all, it never left the browser (file:// or offline); if it shows a red status code, decapi itself returned an error.'
-        );
-      });
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    checkTwitchLive();
-  });
-
-</script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<main class="container">
-  <div class="profile" id="profile">
-    <img src="images/icon_400x400.webp" alt="Profile Picture" width="80" height="80" fetchpriority="high">
-  </div>
+  <main class="container">
 
-  <div class="header">
-    <strong>Tahvo</strong>
-  </div>
+    <div class="profile" id="profile">
+      <img src="images/icon_400x400.webp" alt="Profile Picture" width="80" height="80" fetchpriority="high">
+    </div>
 
-  <div class="bio">
-    Exploring Virtual Worlds
-  </div>
+    <div class="header">
+      <strong>Tahvo</strong>
+    </div>
 
-  <div class="button-container">
-    <a class="button youtube-button" href="https://ko-fi.com/tahvo">
-      <div class="button-inner">
-        <div class="iconbox">
-          <img src="images/icons/kofi.webp" style="background-color: #72A5F2" alt="Image" width="36" height="36" loading="lazy">
+    <div class="bio">
+      Exploring Virtual Worlds
+    </div>
+
+    <!-- Ko-fi -->
+    <div class="button-container">
+      <a class="button" href="https://ko-fi.com/tahvo">
+        <div class="button-inner">
+          <div class="iconbox">
+            <img src="images/icons/kofi.webp" style="background-color: #72A5F2" alt="Ko-fi" width="36" height="36" loading="lazy">
+          </div>
+          <span class="button-text">Support on Ko-Fi!</span>
         </div>
-        <span class="button-text">Support on Ko-Fi!</span>
-      </div>
-      <span class="secondary-text">❤️</span>
-    </a>
-  </div>
+        <span class="secondary-text">❤️</span>
+      </a>
+    </div>
 
-  <div class="button-container">
-    <a class="button youtube-button" href="https://www.youtube.com/channel/UCCQNkmRNM3fPbYeo4XQKogw?sub_confirmation=1">
-      <div class="button-inner">
-        <div class="iconbox">
-          <img src="images/icons/youtube.webp" style="background-color: #ff0000;" alt="Image" width="36" height="36" loading="lazy">
+    <!-- YouTube -->
+    <div class="button-container">
+      <a class="button" href="https://www.youtube.com/channel/UCCQNkmRNM3fPbYeo4XQKogw?sub_confirmation=1">
+        <div class="button-inner">
+          <div class="iconbox">
+            <img src="images/icons/youtube.webp" style="background-color: #ff0000;" alt="YouTube" width="36" height="36" loading="lazy">
+          </div>
+          <span class="button-text">YouTube</span>
         </div>
-        <span class="button-text">YouTube</span>
-      </div>
-    </a>
-  </div>
+      </a>
+    </div>
 
-  <div class="button-container">
-    <a class="button" href="https://www.twitch.tv/tahvolive">
-      <div class="button-inner">
-        <div class="iconbox">
-          <img src="images/icons/twitch.webp" style="background-color: #9146ff;" alt="Image" width="36" height="36" loading="lazy">
+    <!-- Twitch (shows a LIVE badge + glowing avatar ring when streaming) -->
+    <div class="button-container">
+      <a class="button" href="https://www.twitch.tv/tahvolive">
+        <div class="button-inner">
+          <div class="iconbox">
+            <img src="images/icons/twitch.webp" style="background-color: #9146ff;" alt="Twitch" width="36" height="36" loading="lazy">
+          </div>
+          <span class="button-text">Twitch</span>
         </div>
-        <span class="button-text">Twitch</span>
-      </div>
-      <span class="secondary-text" id="twitch-status-text"></span>
-    </a>
-  </div>
+        <span class="secondary-text" id="twitch-status-text"></span>
+      </a>
+    </div>
 
-  <div class="button-container">
-    <a class="button" href="https://www.tiktok.com/@tahvovr">
-      <div class="button-inner">
-        <div class="iconbox">
-          <img src="images/icons/tiktok.webp" style="background-color: #000000;" alt="Image" width="36" height="36" loading="lazy">
+    <!-- TikTok -->
+    <div class="button-container">
+      <a class="button" href="https://www.tiktok.com/@tahvovr">
+        <div class="button-inner">
+          <div class="iconbox">
+            <img src="images/icons/tiktok.webp" style="background-color: #000000;" alt="TikTok" width="36" height="36" loading="lazy">
+          </div>
+          <span class="button-text">TikTok</span>
         </div>
-        <span class="button-text">TikTok</span>
-      </div>
-    </a>
-  </div>
+      </a>
+    </div>
 
-  <!-- BlueSky, X, and Discord now share one equal-width row -->
-  <div class="button-container">
-  <div class="button-row">
-    <a class="buttonsmall" href="https://bsky.app/profile/tahvo.tech" aria-label="BlueSky">
-      <div class="button-inner">
-        <div class="iconbox">
-          <img src="images/icons/bluesky.webp" style="background-color: #4ca2fe;" alt="Image" width="36" height="36" loading="lazy">
-        </div>
+    <!-- BlueSky / X / Discord share one equal-width icon row -->
+    <div class="button-container">
+      <div class="button-row">
+        <a class="buttonsmall" href="https://bsky.app/profile/tahvo.tech" aria-label="BlueSky">
+          <div class="button-inner">
+            <div class="iconbox">
+              <img src="images/icons/bluesky.webp" style="background-color: #4ca2fe;" alt="BlueSky" width="36" height="36" loading="lazy">
+            </div>
+          </div>
+        </a>
+        <a class="buttonsmall" href="https://x.com/TahvoVR" aria-label="X (Twitter)">
+          <div class="button-inner">
+            <div class="iconbox">
+              <img src="images/icons/x.webp" style="background-color: #000000;" alt="X" width="36" height="36" loading="lazy">
+            </div>
+          </div>
+        </a>
+        <a class="buttonsmall" href="https://discord.gg/rapYz8Xqt5" aria-label="Discord">
+          <div class="button-inner">
+            <div class="iconbox">
+              <img src="images/icons/discord.webp" style="background-color: #5865F2;" alt="Discord" width="36" height="36" loading="lazy">
+            </div>
+          </div>
+        </a>
       </div>
-    </a>
-    <a class="buttonsmall" href="https://x.com/TahvoVR" aria-label="X (Twitter)">
-      <div class="button-inner">
-        <div class="iconbox">
-          <img src="images/icons/x.webp" style="background-color: #000000;" alt="Image" width="36" height="36" loading="lazy">
-        </div>
-      </div>
-    </a>
-    <a class="buttonsmall" href="https://discord.gg/rapYz8Xqt5" aria-label="Discord">
-      <div class="button-inner">
-        <div class="iconbox">
-          <img src="images/icons/discord.webp" style="background-color: #5865F2;" alt="Image" width="36" height="36" loading="lazy">
-        </div>
-      </div>
-    </a>
-  </div>
-  </div>
+    </div>
 
-  <div class="business-inquiries-label">Business Inquiries</div>
-  <div class="business-email-line" id="business-email"></div>
-</main>
+    <div class="business-inquiries-label">Business Inquiries</div>
+    <div class="business-email-line" id="business-email"></div>
+
+  </main>
+
+  <script src="js/script.js"></script>
 </body>
 </html>

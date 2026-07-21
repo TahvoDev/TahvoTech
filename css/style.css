@@ -1,0 +1,320 @@
+/* =========================================================
+ *  Base / Page background
+ *  ========================================================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #0d0d0f;
+    color: #f2f2f2;
+}
+
+/* Centered content strip. On narrow screens it fills the full
+ *  width; on wide screens it becomes a calm, floating column. */
+.container {
+    box-sizing: border-box;
+    max-width: 560px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background-color: #161618;
+    text-align: center;
+}
+
+@media (min-width: 560px) {
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+        box-shadow:
+        0 0 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+}
+
+
+/* =========================================================
+ *  Typography
+ *  ========================================================= */
+
+.button,
+.buttonsmall,
+.bio,
+.header,
+.business-inquiries-label,
+.business-email-line {
+    font-family: "Poppins", sans-serif;
+}
+
+.header {
+    color: #f2f2f2;
+}
+
+.bio {
+    color: #b3b3b3;
+}
+
+
+/* =========================================================
+ *  Profile picture
+ *  ========================================================= */
+
+.profile {
+    position: relative;
+    display: inline-block;
+}
+
+.profile img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background-color: #333;
+    border: 3px solid #ff8c00;
+    box-shadow:
+    0 0 0 4px rgba(255, 140, 0, 0.25),
+    0 0 18px rgba(255, 140, 0, 0.55);
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Glowing red ring shown while the streamer is live on Twitch */
+.profile.is-live img {
+    border-color: #ff2d2d;
+    box-shadow:
+    0 0 0 4px rgba(255, 45, 45, 0.3),
+    0 0 20px rgba(255, 45, 45, 0.65);
+    animation: live-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes live-pulse {
+    0%,
+    100% {
+        box-shadow:
+        0 0 0 4px rgba(255, 45, 45, 0.3),
+        0 0 20px rgba(255, 45, 45, 0.65);
+    }
+    50% {
+        box-shadow:
+        0 0 0 6px rgba(255, 45, 45, 0.15),
+        0 0 28px rgba(255, 45, 45, 0.85);
+    }
+}
+
+
+/* =========================================================
+ *  Link buttons (large, full-width)
+ *  ========================================================= */
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 90%; /* avoids squishing on small screens */
+    max-width: 500px;
+    min-width: 250px;
+    margin-bottom: 0.3125rem; /* 5px */
+    padding: 0.45rem 0.9375rem;
+    border-radius: 0.3125rem; /* 5px */
+    font-size: 1.125rem; /* 18px */
+    font-weight: bold;
+    color: white;
+    background-color: #333;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+    transform 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+.button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.button.active {
+    background-color: white;
+    color: black;
+    cursor: default;
+    transform: none;
+}
+
+.button-inner {
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-text {
+    flex: 1;
+    min-width: 0;
+    padding-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.button img {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.iconbox {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.secondary-text {
+    font-size: 12px;
+    color: #aaa;
+    white-space: nowrap;
+}
+
+/* "LIVE" badge shown next to the Twitch button */
+.secondary-text.is-live {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    background-color: #ff2d2d;
+    animation: live-pulse-dot 1.2s ease-in-out infinite;
+}
+
+@keyframes live-pulse-dot {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.75;
+    }
+}
+
+
+/* =========================================================
+ *  Small icon-only buttons (BlueSky / X / Discord row)
+ *  ========================================================= */
+
+.buttonsmall {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0.45rem 0.9375rem;
+    border-radius: 0.3125rem; /* 5px */
+    font-size: 1.125rem; /* 18px */
+    font-weight: bold;
+    color: white;
+    background-color: #333;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+    transform 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+.buttonsmall:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.buttonsmall img {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+/* Row that holds the small icon-only buttons — sized to its
+ *  content rather than stretched to match the large buttons */
+.button-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: auto;
+    gap: 0.75rem;
+    margin: 0 auto 0.3125rem;
+}
+
+.button-row .buttonsmall {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    margin-bottom: 0;
+    padding: 0.45rem;
+    justify-content: center;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.button-row .buttonsmall:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: scale(1.1);
+}
+
+.button-row .iconbox {
+    width: clamp(28px, 9vw, 36px);
+    height: clamp(28px, 9vw, 36px);
+}
+
+.button-row .buttonsmall img {
+    width: 100%;
+    height: 100%;
+    margin-right: 0;
+}
+
+
+/* =========================================================
+ *  Business inquiries / email
+ *  ========================================================= */
+
+.business-inquiries-label {
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999;
+    text-align: center;
+}
+
+.business-email-line {
+    margin-top: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.business-email-line a {
+    color: inherit;
+    text-decoration: underline;
+}

@@ -293,6 +293,12 @@ body {
     margin-right: 0;
 }
 
+/* A row holding a single icon-only button (e.g. Mastodon) sits
+ *  just below the main icon row */
+.button-row--single {
+    margin-top: 0.25rem;
+}
+
 
 /* =========================================================
  *  Business inquiries / email

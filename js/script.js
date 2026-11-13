@@ -1,29 +1,4 @@
 /* =========================================================
- * Middle-click support for link buttons
- * Lets middle-click / auxiliary-click open a link in a new tab.
- * ========================================================= */
-
-function handleButtonClick(url, event) {
-    if (event.button === 1 || event.button === 4) {
-        window.open(url, "_blank");
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".button, .buttonsmall");
-
-    buttons.forEach(function (button) {
-        button.addEventListener("mouseup", function (event) {
-            const url = this.getAttribute("href");
-            if (url != null) {
-                handleButtonClick(url, event);
-            }
-        });
-    });
-});
-
-
-/* =========================================================
  * Business email
  * Built from character codes at runtime as a light deterrent
  * against basic email-harvesting bots scraping the page source.
